@@ -1,0 +1,35 @@
+{
+  "name": "sparkflix",
+  "version": "1.0.0",
+  "description": "Movie Streaming Service",
+  "main": "app.js",
+  "scripts": {
+    "deploymentServer": "node app.js",
+    "devServer": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubanrajdavid/sparkflix.git"
+  },
+  "author": "RRD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rubanrajdavid/sparkflix/issues"
+  },
+  "homepage": "https://github.com/rubanrajdavid/sparkflix#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.3",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "mongoose": "^5.10.5",
+    "morgan": "^1.10.0",
+    "socket.io": "^2.3.0",
+    "socket.mvc": "^0.2.0"
+  }
+}

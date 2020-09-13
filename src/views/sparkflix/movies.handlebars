@@ -1,0 +1,27 @@
+<div class="container">
+    <br>
+    <ul class="list-group">
+        <li href="#" class="list-group-item title">
+            <h4><b>Available Movies</b></h4>
+        </li>
+        {{!-- {{detail}} --}}
+        {{#each detail}}
+        <li href="#" class="list-group-item text-left">
+            <label class="name" style="margin-bottom: 0px !important">
+                <b>Name :</b> {{this.movieName}} <br>
+                <b>Genre :</b> {{this.movieGenre}} <br>
+                <b>Year :</b> {{this.movieYear}} <br>
+                <b>Rating :</b> {{this.movieRating}} <br>
+                <b>Cast :</b> {{this.movieCast}} <br>
+                <b>Description :</b> {{this.movieDescription}} <br>
+            </label>
+            <label class="pull-right " style="margin-bottom: 0px">
+                <a href="https://www.qries.com/">
+                    <img alt="Qries" src="/assets/img/{{this.movieID}}.jpg">
+                </a>
+            </label>
+        </li>
+        {{/each}}
+    </ul>
+    {{{message}}}
+</div>

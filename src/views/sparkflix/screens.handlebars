@@ -1,0 +1,28 @@
+<div class="container">
+    <br>
+    <ul class="list-group">
+        <li href="#" class="list-group-item title">
+            <h4><b>Available Screens</b></h4>
+        </li>
+        {{#each details}}
+        <li href="#" class="list-group-item text-left">
+            <label class="name" style="margin-bottom: 0px !important">
+                <b>Screen ID :</b> {{this.screenID}} <br>
+                <b>Screen Name :</b> {{this.screenName}} <br>
+                <b>Movie Name :</b> {{this.movieName}} <br>
+            </label>
+            <label class="pull-right " style="margin-bottom: 0px"> <a class=" btn btn-success"
+                    href="/vcapp/chatroom/{{this.SCREEN_ID}}">
+                    <i class="fa fa-bullseye fa-lg"></i>
+                </a>
+                <form action="/deletescreen/{{this.SCREEN_ID}}?_method=DELETE" method="post" id="deleteScreen">
+                    <a class="btn btn-danger" id="deleteButton" href="#">
+                        <i class="fa fa-trash-o fa-lg"></i>
+                    </a>
+                </form>
+            </label>
+        </li>
+        {{/each}}
+    </ul>
+    {{{message}}}
+</div>
