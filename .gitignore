@@ -103,6 +103,4 @@ dist
 # TernJS port file
 .tern-port
 
-.jpg
 
-src/views/public/assets/img/*jpg
