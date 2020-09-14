@@ -35,7 +35,20 @@ let controller = {
                 detail
             })
         })
-    }
+    },
+    movieStream: (req, res) => {
+        moviesModel.findOne({ movieID: req.params.mID }, { _id: 0 }).then(detail => {
+            console.log(detail)
+            res.render("sparkflix/movieStream.handlebars", {
+                layout: "sfAppLayout",
+                movies: " active",
+                title: "Movies",
+                createScreen: "",
+                screens: "",
+                detail
+            })
+        })
+    },
 }
 
 module.exports = controller

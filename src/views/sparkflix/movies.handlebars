@@ -16,9 +16,17 @@
                 <b>Description :</b> {{this.movieDescription}} <br>
             </label>
             <label class="pull-right " style="margin-bottom: 0px">
-                <a href="https://www.qries.com/">
-                    <img alt="Qries" src="/assets/img/{{this.movieID}}.jpg">
-                </a>
+                <center>
+                    <a href="/movie/{{movieID}}">
+                        <img alt="{{this.movieName}}" src="/assets/img/{{this.movieID}}.jpg" id="moviePoster">
+                    </a>
+                </center>
+                <center>
+                    <a href="/movie/{{movieID}}" class="btn btn-primary">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        Play Movie
+                    </a>
+                </center>
             </label>
         </li>
         {{/each}}

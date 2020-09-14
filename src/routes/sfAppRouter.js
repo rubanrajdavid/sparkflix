@@ -6,6 +6,7 @@ router.get("/", controller.moviesPageRender);
 router.get("/createscreen", controller.createScreenPageRender);
 router.get("/screens", controller.screensPageRender);
 
+router.get("/movie/:mID", controller.movieStream);
 
 
 
