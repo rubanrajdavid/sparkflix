@@ -3,7 +3,17 @@
         <b>{{detail.movieName}}</b>
     </h3>
     <hr>
+    {{#if message}}
     <div id="videoPlayer">
-        <video src="/assets/videos/{{detail.movieID}}.mp4"></video>
+        <center>
+            <h1>
+                {{message}}
+            </h1>
+        </center>
     </div>
+    {{else}}
+    <div id="videoPlayer">
+        <video src="http://localhost:3000/moviestream/{{detail.movieID}}" controls muted="muted" autoplay></video>
+    </div>
+    {{/if}}
 </div>

@@ -38,9 +38,20 @@ let controller = {
             })
         })
     },
-    movieStream: (req, res) => {
+    movieStreamRender: (req, res) => {
         moviesModel.findOne({ movieID: req.params.mID }, { _id: 0 }).then(detail => {
-            console.log(detail)
+            const path = 'src/views/public/assets/videos/' + req.params.mID + '.mp4'
+            if (!fs.existsSync(path)) {
+                return res.render("sparkflix/movieStream.handlebars", {
+                    layout: "sfAppLayout",
+                    movies: " active",
+                    title: "Movies",
+                    createScreen: "",
+                    screens: "",
+                    detail,
+                    message: "Movie Not Found.Please Try Some other one"
+                })
+            }
             res.render("sparkflix/movieStream.handlebars", {
                 layout: "sfAppLayout",
                 movies: " active",
@@ -51,11 +62,8 @@ let controller = {
             })
         })
     },
-    sampleRender: (req, res) => {
-        res.render("sparkflix/sample.handlebars")
-    },
-    sample: (req, res) => {
-        const path = 'src/views/public/assets/videos/'+req.params.mID+'.mp4'
+    movieStream: (req, res) => {
+        const path = 'src/views/public/assets/videos/' + req.params.mID + '.mp4'
         const stat = fs.statSync(path)
         const fileSize = stat.size
         const range = req.headers.range

@@ -6,10 +6,11 @@ router.get("/", controller.moviesPageRender);
 router.get("/createscreen", controller.createScreenPageRender);
 router.get("/screens", controller.screensPageRender);
 
-router.get("/sample", controller.sampleRender)
-router.get("/samplevideo/:mID", controller.sample)
+// router.get("/sample", controller.sampleRender)
+// router.get("/samplevideo/:mID", controller.sample)
 
-router.get("/movie/:mID", controller.movieStream);
+router.get("/movie/:mID", controller.movieStreamRender);
+router.get("/moviestream/:mID", controller.movieStream);
 
 
 
