@@ -9,19 +9,21 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/screens.css" />
+    {{#if style}}
+    <link rel="stylesheet" href="/assets/css/{{style}}.css" />
+    {{/if}}
     <link rel="stylesheet" href="/assets/css/sfAppLayout.css" />
-    <link rel="stylesheet" href="/assets/css/movies.css" />
-    <link rel="stylesheet" href="/assets/css/movieStream.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"> --}}
 </head>
 
 <body>
+    {{#if navBar}}
     {{>sfNavbar}}
+    {{/if}}
     {{{body}}}
     <script src="/assets/scripts/jquery.min.js"></script>
     <script src="/assets/scripts/bootstrap.min.js"></script>
-    <script src="/assets/scripts/screens.js"></script>
 </body>
 
 </html>

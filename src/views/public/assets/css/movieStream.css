@@ -1,4 +1,71 @@
-video {
-  width: 978px;
-  height: 550px;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.video {
+  width: 100%;
+}
+.videoPlayer {
+  width: 100%;
+  max-width: 1440px;
+  position: relative;
+}
+.controls {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.7);
+}
+.buttons {
+  padding: 1px;
+}
+.buttons button {
+  background: none;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.buttons button:before {
+  content: "\f04b";
+  font-size: 16px;
+  font-family: FontAwesome;
+  width: 20px;
+  height: 30px;
+  display: inline-block;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+.buttons button.play:before {
+  content: "\f04b";
+}
+.buttons button.pause:before {
+  content: "\f04c";
+}
+
+.buttons button.mute:before {
+  content: "\f028";
+  font-size: 16px;
+}
+.buttons button.unmute:before {
+  content: "\f026";
+  font-size: 16px;
+}
+.buttons p {
+  display: inline;
+  color: white;
+  align-self: right;
+}
+.bar {
+  height: 10px;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.juice {
+  height: 5px;
+  width: 0;
+  background-color: royalblue;
 }

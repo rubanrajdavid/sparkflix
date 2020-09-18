@@ -8,6 +8,7 @@ let controller = {
     createScreenPageRender: (req, res) => {
         res.render("sparkflix/createScreen.handlebars", {
             layout: "sfAppLayout",
+            style: "",
             movies: "",
             title: "Create Screen",
             createScreen: " active",
@@ -18,6 +19,7 @@ let controller = {
         screensModel.find({}, { _id: 0 }).then(details => {
             res.render("sparkflix/screens.handlebars", {
                 layout: "sfAppLayout",
+                style: "screens",
                 movies: "",
                 title: "Screens",
                 createScreen: "",
@@ -30,6 +32,7 @@ let controller = {
         moviesModel.find({}, { _id: 0 }).then(detail => {
             res.render("sparkflix/movies.handlebars", {
                 layout: "sfAppLayout",
+                style: "movies",
                 movies: " active",
                 title: "Movies",
                 createScreen: "",
@@ -38,13 +41,14 @@ let controller = {
             })
         })
     },
-    movieStreamRender: (req, res) => {
+    movieStreamPageRender: (req, res) => {
         moviesModel.findOne({ movieID: req.params.mID }, { _id: 0 }).then(detail => {
             const path = 'src/views/public/assets/videos/' + req.params.mID + '.mp4'
             if (!fs.existsSync(path)) {
                 return res.render("sparkflix/movieStream.handlebars", {
                     layout: "sfAppLayout",
                     movies: " active",
+                    style: "movieStream",
                     title: "Movies",
                     createScreen: "",
                     screens: "",
@@ -54,10 +58,12 @@ let controller = {
             }
             res.render("sparkflix/movieStream.handlebars", {
                 layout: "sfAppLayout",
+                style: "movieStream",
                 movies: " active",
                 title: "Movies",
                 createScreen: "",
                 screens: "",
+                navBar: 0,
                 detail
             })
         })

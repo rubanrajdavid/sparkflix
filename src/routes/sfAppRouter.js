@@ -9,7 +9,7 @@ router.get("/screens", controller.screensPageRender);
 // router.get("/sample", controller.sampleRender)
 // router.get("/samplevideo/:mID", controller.sample)
 
-router.get("/movie/:mID", controller.movieStreamRender);
+router.get("/movie/:mID", controller.movieStreamPageRender);
 router.get("/moviestream/:mID", controller.movieStream);
 
 

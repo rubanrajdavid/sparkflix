@@ -1,8 +1,8 @@
+<h3 style="margin-top: 20px;">
+    <center><b>{{detail.movieName}}</b></center>
+</h3>
+<hr>
 <div class="container">
-    <h3 style="margin-top: 20px;">
-        <b>{{detail.movieName}}</b>
-    </h3>
-    <hr>
     {{#if message}}
     <div id="videoPlayer">
         <center>
@@ -12,8 +12,21 @@
         </center>
     </div>
     {{else}}
-    <div id="videoPlayer">
-        <video src="http://localhost:3000/moviestream/{{detail.movieID}}" controls muted="muted" autoplay></video>
+    <div class="videoPlayer">
+        <video class="video" src="http://localhost:3000/moviestream/{{detail.movieID}}"></video>
+        <div class="controls">
+            <div class="bar">
+                <div class="juice">
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="play-pause"></button>
+                <button class="unmute" id="volumeMute"></button>
+                <input type="range" id="volumeSlider" min="0" max="100" value="50" step="1">
+                <p id="duration"></p>
+            </div>
+        </div>
     </div>
     {{/if}}
 </div>
+<script src="/assets/scripts/movieStream.js"></script>
