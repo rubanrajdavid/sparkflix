@@ -16,7 +16,7 @@
   position: absolute;
   width: 100%;
   flex-wrap: wrap;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
 }
 .buttons {
   padding: 1px;
@@ -33,7 +33,7 @@
   font-size: 16px;
   font-family: FontAwesome;
   width: 20px;
-  height: 30px;
+  height: 20px;
   display: inline-block;
   color: #fff;
   -webkit-font-smoothing: antialiased;
@@ -44,28 +44,25 @@
 .buttons button.pause:before {
   content: "\f04c";
 }
-
-.buttons button.mute:before {
-  content: "\f028";
-  font-size: 16px;
+.buttons a {
+  color: #fff;
 }
 .buttons button.unmute:before {
   content: "\f026";
   font-size: 16px;
 }
+.buttons button.mute:before {
+  content: "\f028";
+  font-size: 16px;
+}
+
 .buttons p {
   display: inline;
   color: white;
-  align-self: right;
 }
 .bar {
   height: 10px;
   top: 0;
   left: 0;
   width: 100%;
-}
-.juice {
-  height: 5px;
-  width: 0;
-  background-color: royalblue;
 }

@@ -11,6 +11,7 @@ let controller = {
             style: "",
             movies: "",
             title: "Create Screen",
+            navBar: 1,
             createScreen: " active",
             screens: ""
         })
@@ -23,6 +24,7 @@ let controller = {
                 movies: "",
                 title: "Screens",
                 createScreen: "",
+                navBar: 1,
                 screens: " active",
                 details
             })
@@ -37,6 +39,7 @@ let controller = {
                 title: "Movies",
                 createScreen: "",
                 screens: "",
+                navBar: 1,
                 detail
             })
         })
@@ -53,6 +56,7 @@ let controller = {
                     createScreen: "",
                     screens: "",
                     detail,
+                    navBar: 1,
                     message: "Movie Not Found.Please Try Some other one"
                 })
             }
