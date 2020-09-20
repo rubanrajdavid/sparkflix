@@ -29,6 +29,20 @@ let controller = {
                 details
             })
         })
+    }, screenStreamRender: (req, res) => {
+        screensModel.findOne({ screenID: req.params.sID }, { _id: 0 }).then(details => {
+            res.render("sparkflix/screenStream.handlebars", {
+                layout: "sfAppLayout",
+                style: "screenStream",
+                movies: "",
+                title: "Screens",
+                createScreen: "",
+                navBar: 0,
+                screens: " active",
+                details
+            })
+        })
+
     },
     moviesPageRender: (req, res) => {
         moviesModel.find({}, { _id: 0 }).then(detail => {
