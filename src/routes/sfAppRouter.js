@@ -12,6 +12,7 @@ router.get("/screens", controller.screensPageRender);
 router.get("/movie/:mID", controller.movieStreamPageRender);
 router.get("/moviestream/:mID", controller.movieStream);
 
+router.get("/screen/:sID", controller.screenStreamRender);
 
 
 module.exports = router
