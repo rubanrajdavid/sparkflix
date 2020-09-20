@@ -4,6 +4,7 @@ var volumeMute = document.getElementById('volumeMute')
 var volumeSlider = document.getElementById('volumeSlider')
 var duration = document.getElementById("duration");
 var videoSeeker = document.getElementById("videoSeeker");
+var lightsOff = document.getElementById("lightsOff");
 video.muted = false
 
 function toHours(d) {
@@ -42,6 +43,18 @@ function toggleVolume() {
     }
 }
 
+function toggleLights() {
+    var x = document.getElementsByTagName("BODY")[0];
+    if (x.style.backgroundColor == "rgb(185, 227, 252)") {
+        x.style.backgroundColor = "#000";
+        console.log("cc")
+    }
+    else {
+        console.log(x.style.backgroundColor)
+        x.style.backgroundColor = "rgb(185, 227, 252)"
+    }
+}
+
 volumeMute.onclick = function () {
     toggleVolume()
 }
@@ -50,6 +63,9 @@ playButton.onclick = function () {
     togglePlayPause()
 }
 
+lightsOff.onclick = function () {
+    toggleLights()
+}
 volumeSlider.oninput = function () {
     video.volume = volumeSlider.value / 100;
     if (volumeSlider.value == 0) {
