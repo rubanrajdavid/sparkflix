@@ -6,14 +6,14 @@ const Handlebars = require('handlebars')
 const hbs = require("express-handlebars");
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
 const path = require("path");
-const socketController = require("./src/controllers/sampleSocket")
+const socketController = require("./src/controllers/socketController")
 const mongooseConnection = require('./src/configurations/mongoConnection')
 require("dotenv").config();
 
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-
-io.sockets.on('connection', socketController.connected);
+socketController.connection(io)
+// io.sockets.on('connection', socketController.connected);
 
 //Setup for Handlebars
 app.set("views", path.join(__dirname, "src/views"));
