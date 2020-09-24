@@ -21,7 +21,10 @@
     </div>
     {{else}}
     <div class="videoPlayer">
-        <video class="video" src="http://localhost:3000/moviestream/{{details.movieID}}"></video>
+        <video class="video" src="http://localhost:3000/moviestream/{{details.movieID}}">
+            <track src="/assets/subtitles/{{details.movieID}}.vtt" kind="subtitles" srclang="en" label="English"
+                default />
+        </video>
         <div class="controls">
             <div class="bar">
                 <input type="range" id="videoSeeker" class="bar" min="0" max="100" value="0.1" step="1">
@@ -41,15 +44,12 @@
                 &nbsp;
                 &nbsp;
                 <input type="range" id="volumeSlider" min="0" max="100" value="20" step="1">&nbsp;
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                {{!-- &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; --}}
                 <a class="sync" id="sync">
                     <i class="fa fa-refresh" aria-hidden="true"></i>
                 </a>
-                &emsp;&emsp;
+                &emsp;
                 <a class="lightsOff" id="lightsOff">
                     <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
                 </a>

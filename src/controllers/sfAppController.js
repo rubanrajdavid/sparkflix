@@ -37,7 +37,7 @@ let controller = {
                 movies: "",
                 title: "Screens",
                 createScreen: "",
-                navBar: 0,
+                navBar: 1,
                 screens: " active",
                 details
             })
