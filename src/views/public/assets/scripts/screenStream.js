@@ -6,6 +6,7 @@ var duration = document.getElementById("duration");
 var videoSeeker = document.getElementById("videoSeeker");
 var lightsOff = document.getElementById("lightsOff");
 var sync = document.getElementById("sync");
+var fullScreenElems = document.getElementById("videoPlayer")
 video.muted = false
 
 var socket = io();
@@ -39,6 +40,10 @@ function toHours(d) {
     var m = Math.floor(d % 3600 / 60);
     var s = Math.floor(d % 3600 % 60);
     return h + ":" + m + ":" + s
+}
+
+function openFullscreen() {
+    fullScreenElems.webkitRequestFullscreen();
 }
 
 video.addEventListener('loadedmetadata', function () {
