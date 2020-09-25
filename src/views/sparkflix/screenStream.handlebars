@@ -1,6 +1,6 @@
 <h3 style="margin-top: 20px;">
     <div>
-        <a href="http://localhost:3000/screens">
+        <a href="http://{{ipAddress}}/screens">
             <center>
                 <b>
                     {{details.movieName}}
@@ -22,7 +22,7 @@
     {{else}}
     <div class="videoPlayer" id="videoPlayer" onmousemove="controlsVisiblityOn()">
         <video class="video" id="video" onclick="togglePlayPause()"
-            src="http://localhost:3000/moviestream/{{details.movieID}}">
+            src="http://{{ipAddress}}/moviestream/{{details.movieID}}">
             <track src="/assets/subtitles/{{details.movieID}}.vtt" kind="subtitles" srclang="en" label="English"
                 default />
         </video>

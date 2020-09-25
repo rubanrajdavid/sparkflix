@@ -7,6 +7,7 @@ const screensModel = require('../models/screensModel')
 let controller = {
     createScreenPageRender: (req, res) => {
         res.render("sparkflix/createScreen.handlebars", {
+            ipAddress: process.env.IP_ADDRESS,
             layout: "sfAppLayout",
             style: "",
             movies: "",
@@ -19,6 +20,7 @@ let controller = {
     screensPageRender: (req, res) => {
         screensModel.find({}, { _id: 0 }).then(details => {
             res.render("sparkflix/screens.handlebars", {
+                ipAddress: process.env.IP_ADDRESS,
                 layout: "sfAppLayout",
                 style: "screens",
                 movies: "",
@@ -32,6 +34,7 @@ let controller = {
     }, screenStreamRender: (req, res) => {
         screensModel.findOne({ screenID: req.params.sID }, { _id: 0 }).then(details => {
             res.render("sparkflix/screenStream.handlebars", {
+                ipAddress: process.env.IP_ADDRESS,
                 layout: "sfAppLayout",
                 style: "screenStream",
                 movies: "",
@@ -47,6 +50,7 @@ let controller = {
     moviesPageRender: (req, res) => {
         moviesModel.find({}, { _id: 0 }).then(detail => {
             res.render("sparkflix/movies.handlebars", {
+                ipAddress: process.env.IP_ADDRESS,
                 layout: "sfAppLayout",
                 style: "movies",
                 movies: " active",
@@ -63,6 +67,7 @@ let controller = {
             const path = 'src/views/public/assets/videos/' + req.params.mID + '.mp4'
             if (!fs.existsSync(path)) {
                 return res.render("sparkflix/movieStream.handlebars", {
+                    ipAddress: process.env.IP_ADDRESS,
                     layout: "sfAppLayout",
                     movies: " active",
                     style: "movieStream",
@@ -75,6 +80,7 @@ let controller = {
                 })
             }
             res.render("sparkflix/movieStream.handlebars", {
+                ipAddress: process.env.IP_ADDRESS,
                 layout: "sfAppLayout",
                 style: "movieStream",
                 movies: " active",

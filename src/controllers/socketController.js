@@ -1,11 +1,5 @@
 
 let controller = {
-    // userJoin: (id, room) => {
-    //     const users = [];
-    //     const user = { id, room };
-    //     users.push(user);
-    //     return user;
-    // },
     connection: (io) => {
         io.on('connection', (socket) => {
             socket.emit("greetMsg", "Welcome to SparkFlix")

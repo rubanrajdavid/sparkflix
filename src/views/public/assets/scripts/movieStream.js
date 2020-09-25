@@ -10,6 +10,8 @@ var controls = document.getElementById("controls")
 var timer;
 var isFullScreen = false;
 
+document.addEventListener('contextmenu', event => event.preventDefault());
+
 video.muted = false
 
 function toggleFullscreen() {

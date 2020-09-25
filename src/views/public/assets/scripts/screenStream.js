@@ -11,6 +11,8 @@ var controls = document.getElementById("controls")
 var isFullScreen = false;
 var timer;
 
+document.addEventListener('contextmenu', event => event.preventDefault());
+
 video.muted = false
 
 var socket = io();
