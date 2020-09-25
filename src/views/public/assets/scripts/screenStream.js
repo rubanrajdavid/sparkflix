@@ -7,6 +7,10 @@ var videoSeeker = document.getElementById("videoSeeker");
 var lightsOff = document.getElementById("lightsOff");
 var sync = document.getElementById("sync");
 var fullScreenElems = document.getElementById("videoPlayer")
+var controls = document.getElementById("controls")
+var isFullScreen = false;
+var timer;
+
 video.muted = false
 
 var socket = io();
@@ -42,8 +46,36 @@ function toHours(d) {
     return h + ":" + m + ":" + s
 }
 
-function openFullscreen() {
-    fullScreenElems.webkitRequestFullscreen();
+function toggleFullscreen() {
+    if (!isFullScreen) {
+        isFullScreen = true
+        if (fullScreenElems.requestFullscreen) {
+            fullScreenElems.requestFullscreen();
+        }
+        else if (fullScreenElems.mozRequestFullScreen) {
+            fullScreenElems.mozRequestFullScreen();
+        }
+        else if (fullScreenElems.webkitRequestFullScreen) {
+            fullScreenElems.webkitRequestFullScreen();
+        }
+        else if (fullScreenElems.msRequestFullscreen) {
+            fullScreenElems.msRequestFullscreen();
+        }
+    } else {
+        isFullScreen = false
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+        else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        }
+        else if (document.webkitCancelFullScreen) {
+            document.webkitCancelFullScreen();
+        }
+        else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
 }
 
 video.addEventListener('loadedmetadata', function () {
@@ -83,7 +115,6 @@ function toggleLights() {
         console.log("cc")
     }
     else {
-        console.log(x.style.backgroundColor)
         x.style.backgroundColor = "rgb(185, 227, 252)"
     }
 }
@@ -131,3 +162,10 @@ video.addEventListener('timeupdate', () => {
         playButton.className = "play"
     }
 })
+function controlsVisiblityOn() {
+    controls.style.display = 'block'
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+        controls.style.display = 'none';
+    }, 3000);
+}

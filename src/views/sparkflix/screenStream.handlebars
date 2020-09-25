@@ -20,12 +20,13 @@
         </center>
     </div>
     {{else}}
-    <div class="videoPlayer" id="videoPlayer">
-        <video class="video" id="video" src="http://localhost:3000/moviestream/{{details.movieID}}">
+    <div class="videoPlayer" id="videoPlayer" onmousemove="controlsVisiblityOn()">
+        <video class="video" id="video" onclick="togglePlayPause()"
+            src="http://localhost:3000/moviestream/{{details.movieID}}">
             <track src="/assets/subtitles/{{details.movieID}}.vtt" kind="subtitles" srclang="en" label="English"
                 default />
         </video>
-        <div class="controls">
+        <div class="controls" id="controls">
             <div class="bar">
                 <input type="range" id="videoSeeker" class="bar" min="0" max="100" value="0.1" step="1">
             </div>
@@ -56,7 +57,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <p id="duration"></p>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="#" id="fullScreen" onclick="openFullscreen()">
+                <a href="#" id="fullScreen" onclick="toggleFullscreen()">
                     <i class="fa fa-expand" aria-hidden="true"></i>
                 </a>
             </div>

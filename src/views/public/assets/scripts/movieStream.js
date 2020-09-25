@@ -5,7 +5,44 @@ var volumeSlider = document.getElementById('volumeSlider')
 var duration = document.getElementById("duration");
 var videoSeeker = document.getElementById("videoSeeker");
 var lightsOff = document.getElementById("lightsOff");
+var fullScreenElems = document.getElementById("videoPlayer")
+var controls = document.getElementById("controls")
+var timer;
+var isFullScreen = false;
+
 video.muted = false
+
+function toggleFullscreen() {
+    if (!isFullScreen) {
+        isFullScreen = true
+        if (fullScreenElems.requestFullscreen) {
+            fullScreenElems.requestFullscreen();
+        }
+        else if (fullScreenElems.mozRequestFullScreen) {
+            fullScreenElems.mozRequestFullScreen();
+        }
+        else if (fullScreenElems.webkitRequestFullScreen) {
+            fullScreenElems.webkitRequestFullScreen();
+        }
+        else if (fullScreenElems.msRequestFullscreen) {
+            fullScreenElems.msRequestFullscreen();
+        }
+    } else {
+        isFullScreen = false
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+        else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        }
+        else if (document.webkitCancelFullScreen) {
+            document.webkitCancelFullScreen();
+        }
+        else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+}
 
 function toHours(d) {
     d = Number(d);
@@ -29,8 +66,6 @@ function togglePlayPause() {
         video.pause()
     }
 }
-
-
 
 function toggleVolume() {
     if (video.muted) {
@@ -94,3 +129,11 @@ video.addEventListener('timeupdate', () => {
         playButton.className = "play"
     }
 })
+
+function controlsVisiblityOn() {
+    controls.style.display = 'block'
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+        controls.style.display = 'none';
+    }, 3000);
+}

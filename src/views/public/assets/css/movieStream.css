@@ -66,3 +66,6 @@
   left: 0;
   width: 100%;
 }
+.controls {
+  bottom: calc(100% - 99.99%) !important;
+}
