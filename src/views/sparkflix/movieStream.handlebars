@@ -1,6 +1,6 @@
 <h3 style="margin-top: 20px;">
     <div>
-        <a href="http://192.168.191.155:3000">
+        <a href="http://localhost:3000">
             <center>
                 <b>
                     {{detail.movieName}}
@@ -21,7 +21,7 @@
     </div>
     {{else}}
     <div class="videoPlayer">
-        <video class="video" src="http://192.168.191.155:3000/moviestream/{{detail.movieID}}"></video>
+        <video class="video" src="http://localhost:3000/moviestream/{{detail.movieID}}"></video>
         <div class="controls">
             <div class="bar">
                 <input type="range" id="videoSeeker" class="bar" min="0" max="100" value="0.1" step="1">
